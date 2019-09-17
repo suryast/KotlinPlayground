@@ -12,13 +12,13 @@ data class Coffee(val sugars: Int = 0, val stick: Boolean = false) : Drink(BigDe
 data class HotChocolate(val sugars: Int = 0, val stick: Boolean = false) : Drink(BigDecimal.valueOf(0.5))
 
 object Drinks {
-    fun getOrderedDrink(order: String): Drink {
-        val sugars = order.split(":")[1].toIntOrNull() ?: 0
+    fun getOrderedDrink(order: Order): Drink {
+        val sugars = order.getSecondPartOfTheOrder().toIntOrNull() ?: 0
         val stick = sugars > 0
-        return when (val type = order.first()) {
-            'T' -> Tea(sugars, stick)
-            'H' -> HotChocolate(sugars, stick)
-            'C' -> Coffee(sugars, stick)
+        return when (val type = order.getOrderType()) {
+            "t" -> Tea(sugars, stick)
+            "h" -> HotChocolate(sugars, stick)
+            "c" -> Coffee(sugars, stick)
             else -> throw IllegalDrinkException("$type is an not an accepted drink type")
         }
     }

@@ -11,7 +11,7 @@ object BaristaTest : Spek({
             it("returns a Tea without sugar and stick") {
                 // GIVEN
                 val order = "T::"
-                val request = Request(order, BigDecimal.valueOf(0.6))
+                val request = Request(Order(order), BigDecimal.valueOf(0.6))
                 // WHEN
                 val result = Barista.makeBeverage(request) as Tea
 
@@ -26,7 +26,7 @@ object BaristaTest : Spek({
             it("returns a Tea with right amount of sugar and a stick") {
                 // GIVEN
                 val order = "T:3:"
-                val request = Request(order, BigDecimal.valueOf(0.6))
+                val request = Request(Order(order), BigDecimal.valueOf(0.6))
                 // WHEN
                 val result: Tea = Barista.makeBeverage(request) as Tea
 
@@ -40,7 +40,7 @@ object BaristaTest : Spek({
             it("returns a Coffee with no sugar and no stick") {
                 // GIVEN
                 val order = "C::"
-                val request = Request(order, BigDecimal.valueOf(0.6))
+                val request = Request(Order(order), BigDecimal.valueOf(0.6))
                 // WHEN
                 val result = Barista.makeBeverage(request) as Coffee
 
@@ -54,7 +54,7 @@ object BaristaTest : Spek({
             it("returns a Coffee with 1 sugar and a stick") {
                 // GIVEN
                 val order = "C:1:"
-                val request = Request(order, BigDecimal.valueOf(0.6))
+                val request = Request(Order(order), BigDecimal.valueOf(0.6))
                 // WHEN
                 val result = Barista.makeBeverage(request) as Coffee
 
@@ -68,7 +68,7 @@ object BaristaTest : Spek({
             it("returns a hot chocolate with no sugar and no stick") {
                 // GIVEN
                 val order = "H::"
-                val request = Request(order, BigDecimal.valueOf(0.6))
+                val request = Request(Order(order), BigDecimal.valueOf(0.6))
                 // WHEN
                 val result = Barista.makeBeverage(request) as HotChocolate
 
@@ -81,7 +81,7 @@ object BaristaTest : Spek({
             it("returns a hot chocolate with 1 sugar and a stick") {
                 // GIVEN
                 val order = "H:1:"
-                val request = Request(order, BigDecimal.valueOf(0.6))
+                val request = Request(Order(order), BigDecimal.valueOf(0.6))
                 // WHEN
                 val result = Barista.makeBeverage(request) as HotChocolate
 
@@ -92,10 +92,10 @@ object BaristaTest : Spek({
         }
     }
     describe("The barista receives a message") {
-        it ("should send back the message") {
+        it("should send back the message") {
             // GIVEN
             val order = "M:message-content"
-                val request = Request(order)
+            val request = Request(Order(order))
             // WHEN
             val result = Barista.makeBeverage(request) as Message
 
@@ -108,7 +108,7 @@ object BaristaTest : Spek({
         it("returns a hot chocolate with 1 sugar and a stick") {
             // GIVEN
             val order = "H:1:"
-            val request = Request(order, BigDecimal.valueOf(0.6))
+            val request = Request(Order(order), BigDecimal.valueOf(0.6))
 
             // WHEN
             val result = Barista.makeBeverage(request) as HotChocolate
@@ -122,7 +122,7 @@ object BaristaTest : Spek({
         it("returns a message telling the missing amount") {
             // GIVEN
             val order = "H:1:"
-            val request = Request(order, BigDecimal.valueOf(0.4))
+            val request = Request(Order(order), BigDecimal.valueOf(0.4))
 
             // WHEN
             val result = Barista.makeBeverage(request) as Message
@@ -135,7 +135,7 @@ object BaristaTest : Spek({
         it("returns a message telling the missing amount") {
             // GIVEN
             val order = "C:1:"
-            val request = Request(order, BigDecimal.valueOf(0.5))
+            val request = Request(Order(order), BigDecimal.valueOf(0.5))
 
             // WHEN
             val result = Barista.makeBeverage(request) as Message
@@ -148,7 +148,7 @@ object BaristaTest : Spek({
         it("returns a message telling the missing amount") {
             // GIVEN
             val order = "T:1:"
-            val request = Request(order, BigDecimal.valueOf(0.3))
+            val request = Request(Order(order), BigDecimal.valueOf(0.3))
 
             // WHEN
             val result = Barista.makeBeverage(request) as Message
