@@ -9,7 +9,6 @@ object Barista {
         return Drinks.getOrderedDrink(order)
             .let { RequestService.validateDrinkPayment(it, request.amt) }
     }
-
 }
 
 class IllegalDrinkException(msg: String) : Exception(msg)
