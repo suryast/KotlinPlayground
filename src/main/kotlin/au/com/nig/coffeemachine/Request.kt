@@ -11,4 +11,8 @@ data class Order(val order: String) {
     fun getSecondPartOfTheOrder(): String {
         return order.split(":")[1]
     }
+
+    fun isExtraHot(): Boolean {
+        return order[1] == 'h'
+    }
 }
