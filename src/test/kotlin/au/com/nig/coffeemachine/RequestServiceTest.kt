@@ -49,4 +49,17 @@ internal class RequestServiceTest2 {
         Assertions.assertEquals(drink, result)
 //        Assertions.assertTrue(false)
     }
+    @Test
+    fun `when receiving aan order of making a hot chocolate AND NOT the right amount it should return a message telling the missing amount`() {
+        // GIVEN
+        val amount = BigDecimal.valueOf(0.4)
+        val drink = HotChocolate()
+
+        // WHEN
+        val result = RequestService.validateDrinkPayment(drink, amount) as Message
+
+        // THEN
+        Assertions.assertEquals("Your order is missing $0.1", result.msg)
+//        Assertions.assertTrue(false)
+    }
 }
