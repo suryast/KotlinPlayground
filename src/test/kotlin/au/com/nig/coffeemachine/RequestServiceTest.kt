@@ -18,8 +18,6 @@ object RequestServiceTest : Spek ({
             // THEN
             Assertions.assertEquals(drink, result)
         }
-
-
     }
     describe("Barista receives an order of making a hot chocolate AND NOT the right amount") {
         it("returns a message telling the missing amount") {
