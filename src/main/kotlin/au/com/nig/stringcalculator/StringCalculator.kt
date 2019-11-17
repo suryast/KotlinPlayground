@@ -2,6 +2,6 @@ package au.com.nig.stringcalculator
 
 object StringCalculator {
     fun add(string: String): Int {
-        TODO()
+        return string.split(",").mapNotNull { it.toIntOrNull() }.sum()
     }
 }
