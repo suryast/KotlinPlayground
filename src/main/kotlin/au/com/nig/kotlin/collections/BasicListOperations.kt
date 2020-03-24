@@ -1,36 +1,38 @@
 package au.com.nig.kotlin.collections
-
 object BasicListOperations {
     fun transformIntInStrings(myList: List<Int>): List<String> {
-        TODO()
+        return myList.map { it.toString() }
     }
-
     fun keepOnlyEvenNumbers(myList: List<Int>): List<Int> {
-        TODO()
+        return myList.filter {  it % 2 == 0}
     }
-
     fun transformInListOfChars(myList: List<String>): List<Char> {
-        TODO()
+        return myList.flatMap { str -> str.toCharArray().toList() }
     }
-
     fun keepOnlyNonNullNumbers(myList: List<Int?>): List<Int> {
-        TODO()
+        return myList.filterNotNull()
     }
-
     fun sumNumbers1(myList: List<Int>): Int {
-        TODO()
+        return myList.sum()
     }
-
     fun sumNumbers2(myList: List<Int>): Int {
-        TODO()
+        return myList.reduce { acc, i -> acc + i }
     }
-
+    fun getFirstNumber(myList: List<Int>): Int {
+        return myList.first()
+    }
+    fun getLastNumber(myList: List<Int>): Int {
+        return myList.last()
+    }
     fun getNumber(myList: List<Int>, i: Int): Int {
-        TODO()
+        return myList.get(i)
     }
-
     fun modify(myList: List<Int>): List<Int> {
-        TODO()
+//        val temp = myList.filter { it != 2 }
+//        return temp.plus(10)
+        val temp = myList.toMutableList()
+        temp.remove(2)
+        temp.add(10)
+        return temp
     }
-
 }

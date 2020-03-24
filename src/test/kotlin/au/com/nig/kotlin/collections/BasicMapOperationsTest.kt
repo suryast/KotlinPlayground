@@ -12,7 +12,8 @@ internal class BasicMapOperationsTest {
             Pair(13, "thirsteen"),
             Pair(20, "twentieth"),
             Pair(2, "second"),
-            Pair(35, null)
+            Pair(35, null),
+            Pair(null,null)
         )
         // WHEN
         val result = BasicMapOperations.filterOnKeysAndValuesAndToUpperCaseValues(myMap, 1)
@@ -53,10 +54,9 @@ internal class BasicMapOperationsTest {
             mapOf(
                 Pair(12, "twelve"),
                 Pair(13, "thirsteen"),
-                Pair(2, "second"),
-                Pair(3, "third")
+                Pair(2, "second")
             ),
-            result
+            result1
         )
 
         // WHEN
@@ -72,7 +72,7 @@ internal class BasicMapOperationsTest {
                 Pair(2, "second"),
                 Pair(3, "fourth")
             ),
-            result
+            result2
         )
     }
 
