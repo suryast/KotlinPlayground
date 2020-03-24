@@ -1,11 +1,8 @@
 package au.com.nig.kotlin.collections
 
 object BasicMapOperations {
-    fun getPair(myMap: Map<Int, String>, i: Int): Pair<Int, String> {
-        TODO()
-    }
 
-    fun filterOnKeysAndValuesAndToUpperCaseValues(myMap: Map<Int, String?>, i: Int): Map<Int, String> {
+    fun filterOnKeysAndValuesAndToUpperCaseValues(myMap: Map<Int, String?>, i: Int): Map<Int, String?> {
         TODO()
     }
 

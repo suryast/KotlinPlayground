@@ -5,24 +5,6 @@ import org.junit.jupiter.api.Test
 
 internal class BasicMapOperationsTest {
     @Test
-    fun `should return specific elements of a map`() {
-        // GIVEN
-        val myMap = mapOf(
-            Pair(12, "twelve"),
-            Pair(13, "thirsteen"),
-            Pair(20, "twentieth"),
-            Pair(2, "second")
-        )
-        // WHEN
-        val result = BasicMapOperations.getPair(myMap, 1)
-        val result1 = BasicMapOperations.getPair(myMap, 4)
-
-        // THEN
-        assertEquals(Pair(12, "twelve"), result)
-        assertEquals(Pair(2, "second"), result1)
-    }
-
-    @Test
     fun `should return non-null element values and odd elements of the keys of the map and transofmr in upper case the values of each pair`() {
         // GIVEN
         val myMap = mapOf(

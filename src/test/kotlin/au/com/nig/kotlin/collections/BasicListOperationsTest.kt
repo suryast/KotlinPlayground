@@ -3,7 +3,7 @@ package au.com.nig.kotlin.collections
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
-internal class BasicListOperationsTest {
+class BasicListOperationsTest {
     @Test
     fun `should transform a list of integer in strings`() {
         // GIVEN
@@ -82,9 +82,9 @@ internal class BasicListOperationsTest {
         val myList = listOf(8, 2, 4, 5)
 
         // WHEN
-        val result0 = BasicListOperations.getNumber(myList, 4)
-        val result1 = BasicListOperations.getNumber(myList, 1)
-        val result2 = BasicListOperations.getNumber(myList, 2)
+        val result0 = BasicListOperations.getLastNumber(myList)
+        val result1 = BasicListOperations.getFirstNumber(myList)
+        val result2 = BasicListOperations.getNumber(myList, 1)
 
         // THEN
         assertEquals(5, result0)
